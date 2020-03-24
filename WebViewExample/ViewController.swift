@@ -36,11 +36,16 @@ class ViewController: UIViewController {
     
      @IBAction func btnHistory(_ sender: Any)
     {
-        let history = myWebKitView.backForwardList.backList
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let historyVC = sb.instantiateViewController(identifier: "historyVC") as! HistoryTableViewController
-        historyVC.historyList = self.history
-        navigationController?.pushViewController(historyVC, animated: true)
+        if myWebKitView.canGoBack
+        {
+            let historyList =  myWebKitView.backForwardList.backList
+            if historyList.count > 0
+            {
+                for item in historyList {
+                    print("\(String(describing: item.title)) -  \(item.url.absoluteURL)")
+                }
+            }
+        }
     }
 
     @IBAction func btnNavigation(_ sender: UIBarButtonItem)
