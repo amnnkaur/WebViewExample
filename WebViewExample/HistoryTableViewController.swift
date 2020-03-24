@@ -1,4 +1,5 @@
 import UIKit
+import WebKit
 
 class HistoryTableViewController: UITableViewController {
 static var urls: [WKBackForwardListItem] = []
@@ -40,3 +41,4 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
     // Return false if you do not want the item to be re-orderable.
     return true
   }
+}
