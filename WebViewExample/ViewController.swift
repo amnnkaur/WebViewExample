@@ -34,7 +34,14 @@ class ViewController: UIViewController {
         
     }
     
-    
+     @IBAction func btnHistory(_ sender: Any)
+    {
+        let history = myWebKitView.backForwardList.backList
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let historyVC = sb.instantiateViewController(identifier: "historyVC") as! HistoryTableViewController
+        historyVC.historyList = self.history
+        navigationController?.pushViewController(historyVC, animated: true)
+    }
 
     @IBAction func btnNavigation(_ sender: UIBarButtonItem)
     {
